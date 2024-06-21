@@ -1655,3 +1655,94 @@ span.camera-icon {
 img {
   object-fit: cover;
 }
+
+/* FB Bio design */
+
+input,
+textarea {
+  outline: none;
+}
+
+.bio-head h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #050505;
+  padding-bottom: 10px;
+}
+
+.fb-btn-primary {
+  width: 100%;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #050505;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background-color: #e4e6eb;
+}
+
+.fb-btn-primary:hover {
+  background-color: #d8dadf;
+}
+
+.fb-bio-edit textarea {
+  width: 100%;
+  height: 78px;
+  text-align: center;
+  border: 1px solid #ced0d4;
+  padding: 8px 12px;
+  background-color: #f0f2f5;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #050505;
+}
+
+.fb-bio-edit textarea:hover {
+  background-color: #e4e6e8;
+}
+
+.fb-bio-edit textarea:focus {
+  background-color: #fff;
+  border-color: #0866ff;
+}
+
+.fb-bio-edit p {
+  font-size: 12px;
+  text-align: right;
+  margin: -5px 0px 4px;
+}
+
+.bio-btn-regular {
+  width: auto;
+}
+
+.bio-btn-blue {
+  background-color: #0866ff;
+  color: #fff;
+}
+
+.disabled,
+.disabled:hover {
+  background-color: #e4e6eb !important;
+  color: #bcc0c4;
+  pointer-events: none;
+}
+
+.bio-btn-blue:hover {
+  background-color: #0861f2;
+}
+
+.btns {
+  text-align: right;
+}
+
+.fb-bio-show p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.fb-bio-edit,
+.fb-bio-show {
+  display: none;
+}

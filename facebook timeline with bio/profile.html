@@ -299,7 +299,48 @@
 
     <div class="fb-profile-body">
       <div class="fb-profile-container">
-        <div class="fb-profile-info"></div>
+        <!-- FB profile bio -->
+        <div class="fb-profile-info">
+          <div class="fb-bio-card">
+            <div class="bio-head">
+              <h3>Intro</h3>
+            </div>
+
+            <div class="bio-body">
+              <div class="fb-bio-add">
+                <button id="bio-add" class="fb-btn-primary">Add Bio</button>
+              </div>
+
+              <div class="fb-bio-edit">
+                <textarea
+                  id="bio-content"
+                  placeholder="Describe who you are"
+                ></textarea>
+                <p id="remain">101 characters remaining</p>
+
+                <div class="btns">
+                  <button
+                    id="bio-cancle"
+                    class="fb-btn-primary bio-btn-regular"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    id="bio-save"
+                    class="fb-btn-primary bio-btn-regular bio-btn-blue disabled"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <div class="fb-bio-show">
+                <p id="bio-text">Traveler of Hard Work and Dedication</p>
+                <button id="bio-edit" class="fb-btn-primary">Edit Bio</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="fb-profile-post">
           <!-- Create Post Box  -->

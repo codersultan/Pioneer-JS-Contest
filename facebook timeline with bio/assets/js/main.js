@@ -356,3 +356,82 @@ postUpdateForm.onsubmit = (e) => {
   getAllPost();
   peClose.click();
 };
+
+// Facebook Bio
+const bioAdd = document.querySelector(".fb-bio-add");
+const bioEdit = document.querySelector(".fb-bio-edit");
+const bioShow = document.querySelector(".fb-bio-show");
+
+const btnAdd = document.getElementById("bio-add");
+const btnCancle = document.getElementById("bio-cancle");
+const btnSave = document.getElementById("bio-save");
+const btnEdit = document.getElementById("bio-edit");
+
+const bioContent = document.getElementById("bio-content");
+const remain = document.getElementById("remain");
+const bioTextUpdate = document.getElementById("bio-text");
+
+// get bio
+const getBioData = () => {
+  const data = localStorage.getItem("bio");
+
+  if (data) {
+    bioTextUpdate.innerHTML = data;
+
+    bioAdd.style.display = "none";
+    bioEdit.style.display = "none";
+    bioShow.style.display = "block";
+  } else {
+    bioAdd.style.display = "block";
+    bioEdit.style.display = "none";
+    bioShow.style.display = "none";
+  }
+};
+getBioData();
+
+// Add bio button action
+btnAdd.onclick = () => {
+  bioAdd.style.display = "none";
+  bioEdit.style.display = "block";
+};
+
+// Cancle bio button action
+btnCancle.onclick = () => {
+  getBioData();
+};
+
+// Character count action
+bioContent.onkeyup = () => {
+  const bioData = bioContent.value.length;
+
+  const remainValue = 101 - bioData;
+
+  if (remainValue < 0) {
+    alert("Please keep in 101 characters.");
+    remain.innerHTML = `Please delete ${remainValue} characters.`;
+  } else {
+    remain.innerHTML = `${remainValue} characters remaining`;
+  }
+
+  if (!bioData) {
+    btnSave.classList.add("disabled");
+  } else {
+    btnSave.classList.remove("disabled");
+  }
+};
+
+// Save btn action
+btnSave.onclick = () => {
+  bioShow.style.display = "block";
+  bioEdit.style.display = "none";
+
+  localStorage.setItem("bio", bioContent.value);
+
+  getBioData();
+};
+
+// Edit btn action
+btnEdit.onclick = () => {
+  bioShow.style.display = "none";
+  bioEdit.style.display = "block";
+};
