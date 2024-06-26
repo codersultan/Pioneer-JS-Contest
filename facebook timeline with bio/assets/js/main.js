@@ -434,4 +434,7 @@ btnSave.onclick = () => {
 btnEdit.onclick = () => {
   bioShow.style.display = "none";
   bioEdit.style.display = "block";
+
+  const data = localStorage.getItem("bio");
+  bioContent.innerHTML = data;
 };

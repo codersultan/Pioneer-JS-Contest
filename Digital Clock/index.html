@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+
+    <!-- Box Icon CDN -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="digital-clock">
+      <audio id="sound" src="./assets/media/audio/a2.wav"></audio>
+
+      <div class="clock-body">
+        <div class="dark-light">
+          <i class="bx bxs-moon moon"></i>
+          <i class="bx bxs-sun sun"></i>
+        </div>
+
+        <div class="main-buttons">
+          <button class="btn-clock dc-btn active">
+            <i class="bx bx-time-five"></i>Clock
+          </button>
+          <button class="btn-alerm dc-btn">
+            <i class="bx bx-alarm"></i>Alarm
+          </button>
+          <button class="btn-stopwatch dc-btn">
+            <i class="bx bx-stopwatch"></i>Stopwatch
+          </button>
+          <button class="btn-timer dc-btn">
+            <i class="bx bx-timer"></i>Timer
+          </button>
+        </div>
+
+        <div class="display">
+          <div class="d-time">
+            <h2 class="clock-font time"></h2>
+            <h2 class="clock-font alarm">00:00:00</h2>
+            <h2 class="clock-font stopwatch">00:00:00</h2>
+            <h2 class="clock-font timer">00:00:00</h2>
+            <h4 id="ampm"></h4>
+          </div>
+
+          <div class="d-items" id="itemBtn">
+            <span>(Hours)</span>
+            <span>(Minutes)</span>
+            <span>(Seconds)</span>
+            <span>(Mili Seconds)</span>
+          </div>
+        </div>
+
+        <div class="fuction-btn">
+          <button class="start f-btn">Start</button>
+          <button class="stop f-btn">Stop</button>
+          <button class="cancel f-btn">Cancel</button>
+          <button class="reset f-btn">Reset</button>
+          <button class="lap f-btn disable">Lap</button>
+          <button class="pause f-btn">Pause</button>
+        </div>
+      </div>
+
+      <div class="lap-box">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/models.js"></script>
+    <script src="./assets/js/function.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
