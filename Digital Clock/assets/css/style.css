@@ -100,7 +100,7 @@
   gap: 10px;
 }
 
-.d-time span .display h4 {
+.display h4 {
   font-family: var(--ampm-font);
   font-size: 30px;
 }
@@ -160,7 +160,7 @@
   display: none;
 }
 
-/* Function button */
+/* StopWatch Function button */
 .fuction-btn {
   width: 40%;
   margin: auto;
@@ -217,15 +217,7 @@
 .reset:hover,
 .lap:hover,
 .pause:hover {
-  background-color: #25a0da;
-}
-
-.disable {
-  background-color: #e5eaff;
-  pointer-events: none;
-}
-.disable:hover {
-  background-color: #e5eaff;
+  background-color: #0689c5;
 }
 
 .active {
@@ -245,10 +237,90 @@
   text-align: center;
   position: absolute;
   bottom: 80px;
+  display: none;
 }
 
 .lap-box ul {
   list-style: none;
+}
+
+/* Timer Fuctin Btn */
+.timer-box {
+  display: none;
+  width: 78%;
+  text-align: center;
+  position: absolute;
+  bottom: 6px;
+}
+
+.timer-input {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.timer-box input {
+  outline: none;
+  font-size: 10px;
+  padding: 2px;
+  width: 60px;
+  text-align: center;
+}
+
+.timer-btn {
+  width: 50%;
+  margin: 10px auto 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.timer-btn button,
+.t-start {
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  display: none;
+}
+
+.t-start {
+  border-radius: 3px;
+  display: block;
+}
+
+.t-start,
+.t-cancel {
+  background-color: #808836;
+  color: #fff;
+}
+
+.t-start:hover,
+.t-cancel:hover {
+  background-color: #6d7434;
+}
+
+.t-pause,
+.t-resume {
+  background-color: #359ecf;
+  color: #fff;
+}
+
+.t-pause:hover,
+.t-resume:hover {
+  background-color: #0689c5;
+}
+
+/* // Primary color Disable */
+.disable {
+  background-color: #e5eaff;
+  pointer-events: none;
+}
+.disable:hover {
+  background-color: #e5eaff;
 }
 
 /* Dark Mode Design */

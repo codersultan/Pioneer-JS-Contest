@@ -22,9 +22,16 @@ const reset = document.querySelector(".reset");
 const pause = document.querySelector(".pause");
 const lap = document.querySelector(".lap");
 
-const fButtons = document.querySelectorAll(".fuction-btn button");
-
+const fButtons = document.querySelectorAll(".f-buttons button");
 const timeBtn = document.querySelector(".d-items");
+const lapBox = document.querySelector(".lap-box");
+const timerBox = document.querySelector(".timer-box");
+
+const t_start = document.querySelector(".t-start");
+const t_cancel = document.querySelector(".t-cancel");
+const t_pause = document.querySelector(".t-pause");
+const t_resume = document.querySelector(".t-resume");
+const timeForm = document.getElementById("timer-form");
 
 // Digital clock Function
 const digitalClock = () => {
@@ -143,8 +150,12 @@ clock_btn.onclick = (e) => {
   alarm.style.display = "none";
   stopwatch.style.display = "none";
   timer.style.display = "none";
+  ampm.style.display = "block";
+
   timeBtn.firstElementChild.style.display = "block";
   timeBtn.lastElementChild.style.display = "none";
+  timerBox.style.display = "none";
+  lapBox.style.display = "none";
 
   activeColor(e.target);
   btnDisplay(e.target);
@@ -158,9 +169,12 @@ clock_Alerm.onclick = (e) => {
   alarm.style.display = "block";
   stopwatch.style.display = "none";
   timer.style.display = "none";
+  ampm.style.display = "none";
 
   timeBtn.firstElementChild.style.display = "none";
   timeBtn.lastElementChild.style.display = "block";
+  timerBox.style.display = "none";
+  lapBox.style.display = "none";
 
   activeColor(e.target);
   btnDisplay(e.target, start, lap);
@@ -178,6 +192,8 @@ clock_swatch.onclick = (e) => {
 
   timeBtn.firstElementChild.style.display = "none";
   timeBtn.lastElementChild.style.display = "block";
+  timerBox.style.display = "none";
+  lapBox.style.display = "block";
 
   btnDisplay(e.target, start, lap);
   activeColor(e.target);
@@ -191,14 +207,127 @@ clock_timer.onclick = (e) => {
   alarm.style.display = "none";
   stopwatch.style.display = "none";
   timer.style.display = "block";
+  ampm.style.display = "none";
 
-  timeBtn.firstElementChild.style.display = "none";
-  timeBtn.lastElementChild.style.display = "block";
+  timeBtn.firstElementChild.style.display = "block";
+  timeBtn.lastElementChild.style.display = "none";
+  timerBox.style.display = "block";
+  lapBox.style.display = "none";
 
-  ampm.innerHTML = "ti";
   activeColor(e.target);
   btnDisplay(e.target);
   clearInterval(clockInit);
+
+  if (tInt == true) {
+    t_cancel.classList.add("visibility");
+    t_pause.classList.add("visibility");
+  }
+
+  // if (h == 0 || m == 0 || s == 0) {
+  //   tInt = false;
+  // }
+
+  if (tInt == false) {
+    t_cancel.classList.remove("visibility");
+    t_pause.classList.remove("visibility");
+  }
+};
+
+//Start Btn - OnSubmit form
+timeForm.onsubmit = (e) => {
+  e.preventDefault();
+
+  const form_data = new FormData(e.target);
+  const timerData = Object.fromEntries(form_data);
+
+  const { hour, min, sec } = timerData;
+  h = parseInt(hour);
+  m = parseInt(min);
+  s = parseInt(sec);
+
+  if (h > 0 || m > 0 || s > 0) {
+    tInt = true;
+  }
+
+  if (tInt == true) {
+    btnDisplay(e.target, t_cancel, t_pause);
+  }
+
+  t_pause.classList.remove("disable");
+
+  timerOn();
+};
+
+// Timer On Fuction
+let h = 0;
+let m = 0;
+let s = 0;
+let tInt;
+
+const timerOn = () => {
+  if (!h) {
+    h = 0;
+  }
+  if (!m) {
+    m = 0;
+  }
+  if (!s) {
+    s = 0;
+  }
+
+  timerInt = setInterval(() => {
+    sound.play();
+
+    timer.innerHTML = `${h < 10 ? "0" + h : h}:${m < 10 ? "0" + m : m}:${
+      s < 10 ? "0" + s : s
+    }`;
+
+    if (h === 0 && m === 0 && s === 0) {
+      clearInterval(timerInt);
+      tInt = false;
+    } else if (s === 0) {
+      if (m === 0) {
+        if (h > 0) {
+          h--;
+          m = 59;
+          s = 59;
+        }
+      } else {
+        m--;
+        s = 59;
+      }
+    } else {
+      s--;
+    }
+  }, 1000);
+};
+
+// Timer Cancel butoon action
+const timerCancel = document.getElementById("timer-cancel");
+timerCancel.onclick = (e) => {
+  clearInterval(timerInt);
+  timer.innerHTML = "00:00:00";
+
+  tInt == false;
+
+  t_cancel.classList.remove("visibility");
+  t_pause.classList.remove("visibility");
+  t_resume.classList.remove("visibility");
+};
+
+// Timer Pause butoon action
+const timerPause = document.getElementById("timer-pause");
+timerPause.onclick = (e) => {
+  btnDisplay(e.target, t_cancel, t_resume);
+  clearInterval(timerInt);
+};
+
+// Timer Reset butoon action
+const timerResume = document.getElementById("timer-resume");
+timerResume.onclick = (e) => {
+  btnDisplay(e.target, t_cancel, t_pause);
+
+  timerOn();
 };
 
 // Dark Mode

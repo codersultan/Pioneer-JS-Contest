@@ -56,13 +56,30 @@
           </div>
         </div>
 
-        <div class="fuction-btn">
+        <div class="fuction-btn f-buttons">
           <button class="start f-btn">Start</button>
           <button class="stop f-btn">Stop</button>
           <button class="cancel f-btn">Cancel</button>
           <button class="reset f-btn">Reset</button>
           <button class="lap f-btn disable">Lap</button>
           <button class="pause f-btn">Pause</button>
+        </div>
+
+        <div class="timer-box">
+          <form action="" id="timer-form">
+            <div class="timer-input">
+              <input type="number" placeholder="Hours" name="hour" />
+              <input type="number" placeholder="Minuts" name="min" />
+              <input type="number" placeholder="Seconds" name="sec" />
+
+              <button type="submit" class="t-start">Start</button>
+            </div>
+          </form>
+          <div class="timer-btn f-buttons">
+            <button class="t-cancel" id="timer-cancel">Cancel</button>
+            <button class="t-pause disable" id="timer-pause">Pause</button>
+            <button class="t-resume" id="timer-resume">Resume</button>
+          </div>
         </div>
       </div>
 
