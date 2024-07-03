@@ -102,6 +102,12 @@ start.onclick = (e) => {
   btnDisplay(e.target, stop, lap);
 
   lap.classList.remove("disable");
+
+  clearInterval(timerInt);
+  timer.innerHTML = "00:00:00";
+
+  t_cancel.classList.remove("visibility");
+  t_pause.classList.remove("visibility");
 };
 
 stop.onclick = (e) => {
@@ -161,6 +167,8 @@ clock_btn.onclick = (e) => {
   btnDisplay(e.target);
 
   digitalClock();
+  clearInterval(timerInt);
+  clearInterval(int);
 };
 
 // Alerm button action
@@ -254,6 +262,8 @@ timeForm.onsubmit = (e) => {
   }
 
   t_pause.classList.remove("disable");
+  clearInterval(int);
+  stopwatch.innerHTML = `00:00:00`;
 
   timerOn();
 };
@@ -300,6 +310,11 @@ const timerOn = () => {
       s--;
     }
   }, 1000);
+
+  sMinuts = 0;
+  sSeconds = 0;
+  sMiliSec = 0;
+  stopwatch.innerHTML = "00:00:00";
 };
 
 // Timer Cancel butoon action
