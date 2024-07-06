@@ -158,8 +158,8 @@ clock_btn.onclick = (e) => {
   timer.style.display = "none";
   ampm.style.display = "block";
 
-  timeBtn.firstElementChild.style.display = "block";
-  timeBtn.lastElementChild.style.display = "none";
+  timeBtn.style.display = "none";
+
   timerBox.style.display = "none";
   lapBox.style.display = "none";
 
@@ -171,23 +171,35 @@ clock_btn.onclick = (e) => {
   clearInterval(int);
 };
 
-// Alerm button action
+// Date button action
 clock_Alerm.onclick = (e) => {
   time.style.display = "none";
   alarm.style.display = "block";
   stopwatch.style.display = "none";
   timer.style.display = "none";
-  ampm.style.display = "none";
+  ampm.style.display = "block";
 
-  timeBtn.firstElementChild.style.display = "none";
-  timeBtn.lastElementChild.style.display = "block";
   timerBox.style.display = "none";
   lapBox.style.display = "none";
+  start.classList.remove("visibility");
+  lap.classList.remove("visibility");
 
   activeColor(e.target);
-  btnDisplay(e.target, start, lap);
-
   clearInterval(clockInit);
+
+  const cDate = new Date();
+
+  let date = cDate.getDate();
+  let month = cDate.getMonth() + 1;
+  let year = cDate.getFullYear();
+
+  let dayofWeek = cDate.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  let dayName = days[dayofWeek];
+  alarm.innerHTML = `${date}:${month}:${year}`;
+
+  ampm.innerHTML = dayName;
 };
 
 // Stopwatch button action
