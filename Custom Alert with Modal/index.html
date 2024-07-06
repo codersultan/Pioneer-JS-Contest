@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Modal</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="./accets/css/style.css" />
+  </head>
+  <body>
+    <div class="hero-section">
+      <div class="container">
+        <div class="content">
+          <h1>Front-End Developer</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+            ratione facilis illum id doloremque vitae aperiam a porro recusandae
+            incidunt.
+          </p>
+
+          <a href="#" id="modal-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Modal -->
+    <div class="modal-container" id="modal-box">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Edit Post</h3>
+          <button id="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            optio est at possimus explicabo a consequuntur aut velit officia
+            consequatur?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Alert -->
+    <div class="alert-container" id="alert-box">
+      <div class="alert">
+        <div class="alert-header">
+          <h3>Unsaved changes</h3>
+          <button id="close-alert"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="alert-body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="alert-footer">
+          <button class="keep-edit">Continue editing</button>
+          <button class="discard">Discard</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/data.js"></script>
+    <script src="./src/function.js"></script>
+    <script src="./src/model.js"></script>
+    <script src="./src/main.js"></script>
+  </body>
+</html>

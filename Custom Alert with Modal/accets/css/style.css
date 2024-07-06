@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.hero-section {
+  background: url("../media/image/banner.jpg"), no-repeat, center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.content {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 100px 50px;
+}
+
+.content h1 {
+  font-size: 50px;
+}
+
+.content p {
+  font-size: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.content a {
+  margin-top: 40px;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #fff;
+  border: 3px solid #fff;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Modal Design */
+
+.modal-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.modal {
+  width: 500px;
+  height: auto;
+  background-color: #fff;
+
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 0.3s ease-in-out;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  position: relative;
+}
+
+.modal-header h3 {
+  font-size: 20px;
+}
+
+.modal-header button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ffc4c4;
+  border-radius: 50%;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  background-color: #e4e6eb;
+  cursor: pointer;
+}
+
+.modal-header button:hover,
+.alert-header button:hover {
+  background-color: #d8dadf;
+}
+
+.modal-body,
+.alert-body {
+  padding: 15px;
+  font-size: 15px;
+}
+
+.modal-footer {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+/* Alert Design */
+
+.alert-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  display: none;
+}
+
+.alert {
+  width: 500px;
+  height: auto;
+  background-color: #fff;
+
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+
+.alert-header {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-header button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ffc4c4;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.alert-footer {
+  padding: 15px;
+  text-align: right;
+}
+
+.alert-footer button {
+  padding: 8px 35px;
+  background-color: #0866ff;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.alert-footer button:hover {
+  background-color: #045ce9;
+}
+
+.alert-footer button:first-child {
+  background-color: transparent;
+  color: #0866ff;
+  padding: 8px 15px;
+}
+
+.alert-footer button:first-child:hover {
+  background-color: #f2f2f2;
+  color: #0866ff;
+}
